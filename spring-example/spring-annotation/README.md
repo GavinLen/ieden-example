@@ -1,13 +1,34 @@
-# spring-annotation
+# README
+
 [toc]
 
-## 1. 组件注册
+## 1.组件注入的方式
 
-### 1.1 @Configuration
-> 用于注解一个类，标记该类为一个配置文件类。
+### 1.1 `@Configuration` + `@Bean`
 
-### 1.2 @Bean
-> 用于注解一个方法，将该类的返回值注入到 Spring 容器中。
-> 默认情况下类的名称为方法名，也可以提供注解中的 value bean 的名称。
+> 常用于导入第三方包
 
-### 1.3 
+### 1.2 `@ComponentScan` + `@Controller|@Service|@Repository`
+
+> 自定义的类
+
+### 1.3 `@Import`
+
+> 快速向 IoC 容器中导入一个 Bean。
+
+- 导入一个实体类
+
+注入该实体到 IoC 容器中， id 默认为类的全路径。
+
+- 导入一个实现`ImportSelector`的类
+
+返回需要导入的组件的全类名数组。
+
+- 导入一个实现`AnnotationMetadata`的类
+
+手动注册 Bean 的 IoC 容器中。
+
+### 1.4 实现`FactoryBean`
+
+- 默认获取的工厂 bean 为 `getObject()`方法返回的 Bean
+- 如果要获取工厂自身的 Bean，则需要通过 `&beanName`获取 Bean

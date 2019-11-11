@@ -1,5 +1,6 @@
 package xyz.ieden.example.spring.annotation.config;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -16,9 +17,13 @@ import java.util.Date;
  * @date 2019/11/10 20:28
  */
 @Configuration
-@ComponentScan(value = {"xyz.ieden.example.spring.annotation"}, includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Controller.class)}, useDefaultFilters = false)
+@ComponentScan(value = {"xyz.ieden.example.spring.annotation"},
+        includeFilters = {@ComponentScan.Filter(type = FilterType.CUSTOM, classes = {MyTypeFilter.class})},
+        useDefaultFilters = false)
 public class MyConfig {
 
+    @Lazy(value = true)
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     @Bean
     public User user() {
         User user = new User(1, "tom", new Date());
