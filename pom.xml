@@ -11,6 +11,7 @@
     <modules>
         <module>xml-example</module>
         <module>spring-example</module>
+        <module>spring-boot-example</module>
     </modules>
 
     <properties>
