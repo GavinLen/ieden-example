@@ -1,0 +1,4 @@
+spring:
+  jackson:
+    parser:
+      ALLOW_NUMERIC_LEADING_ZEROS: true

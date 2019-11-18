@@ -12,7 +12,10 @@
     <artifactId>spring-boot-example</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>spring-boot-common</module>
         <module>spring-boot-fastjson</module>
+        <module>spring-boot-jackson</module>
+        <module>spring-boot-swagger2</module>
     </modules>
 
     <properties>
