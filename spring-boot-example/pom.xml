@@ -16,6 +16,8 @@
         <module>spring-boot-fastjson</module>
         <module>spring-boot-jackson</module>
         <module>spring-boot-swagger2</module>
+        <module>spring-boot-data</module>
+        <module>spring-boot-initializr</module>
     </modules>
 
     <properties>

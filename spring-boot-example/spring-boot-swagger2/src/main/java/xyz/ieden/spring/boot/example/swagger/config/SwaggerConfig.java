@@ -1,5 +1,6 @@
 package xyz.ieden.spring.boot.example.swagger.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +22,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    @Value("${swagger.enable:false}")
+    private boolean enableSwagger;
+
     @Bean
     public Docket bookDocket() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("book")
+        Docket docket = new Docket(DocumentationType.SWAGGER_2);
+        return docket.groupName("book")
                 .apiInfo(bookApiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
@@ -44,8 +48,8 @@ public class SwaggerConfig {
 
     @Bean
     public Docket userInfoDocket() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("user")
+        final Docket docket = getDocket();
+        return docket.groupName("user")
                 .apiInfo(userInfoApiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("xyz.ieden.spring.boot.example.swagger.user.controller"))
@@ -61,6 +65,12 @@ public class SwaggerConfig {
                 .contact(new Contact("", "", ""))
                 .version("1.0")
                 .build();
+    }
+
+    private Docket getDocket() {
+        final Docket docket = new Docket(DocumentationType.SWAGGER_2);
+        docket.enable(enableSwagger);
+        return docket;
     }
 
 }

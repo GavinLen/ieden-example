@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.0.1
  * @date 2019/11/16 11:29
  */
-@Api(value = "UserInfo API")
+@Api(value = "UserInfo API", tags = {"用户信息"})
 @Slf4j
 @RestController
 @RequestMapping(value = "user")
