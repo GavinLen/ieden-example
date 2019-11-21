@@ -12,6 +12,7 @@
         <module>xml-example</module>
         <module>spring-example</module>
         <module>spring-boot-example</module>
+        <module>json-example</module>
     </modules>
 
     <properties>
