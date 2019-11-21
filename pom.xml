@@ -13,6 +13,7 @@
         <module>spring-example</module>
         <module>spring-boot-example</module>
         <module>json-example</module>
+        <module>cache-example</module>
     </modules>
 
     <properties>
