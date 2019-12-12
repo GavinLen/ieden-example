@@ -19,6 +19,7 @@
         <module>spring-boot-data</module>
         <module>spring-boot-initializr</module>
         <module>spring-boot-admin</module>
+        <module>spring-boot-hibernate-validator</module>
     </modules>
 
     <properties>
