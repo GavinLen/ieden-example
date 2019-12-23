@@ -17,7 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class UserModel {
 
-    @NotNull(message = "Id 不能为空")
+    @NotNull(message = "Id 不能为空", groups = {})
     private Long id;
     @NotBlank(message = "名称不能为空")
     private String username;
@@ -26,7 +26,6 @@ public class UserModel {
     private String email;
     @Max(value = 200, message = "年龄不合法")
     private Short age;
-    @AssertFalse(message = "登录状态不合法")
     private Boolean loginStatus;
     private Date createTime;
 }
