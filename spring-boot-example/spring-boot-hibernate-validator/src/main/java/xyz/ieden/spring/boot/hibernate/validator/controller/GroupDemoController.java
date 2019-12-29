@@ -10,6 +10,8 @@ import xyz.ieden.spring.boot.example.common.util.ResultUtils;
 import xyz.ieden.spring.boot.hibernate.validator.group.ValidatorGroupA;
 import xyz.ieden.spring.boot.hibernate.validator.model.Person;
 
+import javax.validation.Valid;
+
 /**
  * @author lianghongwei01
  * @version 1.0.1
@@ -21,7 +23,7 @@ import xyz.ieden.spring.boot.hibernate.validator.model.Person;
 public class GroupDemoController {
 
     @GetMapping()
-    public Result<Person> getPerson(@Validated(ValidatorGroupA.class) Person reqPerson) {
+    public Result<Person> getPerson(@Validated(value = {ValidatorGroupA.class}) Person reqPerson) {
         Integer userId = reqPerson.getUserId();
         Person person = new Person(userId, "", 1, "");
         return ResultUtils.getSuccess(person);

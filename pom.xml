@@ -15,6 +15,7 @@
         <module>json-example</module>
         <module>cache-example</module>
         <module>es-example</module>
+        <module>bean-validation-example</module>
     </modules>
 
     <properties>

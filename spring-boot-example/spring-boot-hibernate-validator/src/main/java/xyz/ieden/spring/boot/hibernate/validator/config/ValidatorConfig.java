@@ -22,7 +22,7 @@ public class ValidatorConfig {
     public Validator validator() {
         ValidatorFactory validatorFactory = Validation.byProvider(HibernateValidator.class)
                 .configure() // true-快速失败返回模式    false-普通模式
-                .addProperty("hibernate.validator.fail_fast", "true")
+                .failFast(Boolean.FALSE)
                 .buildValidatorFactory();
         Validator validator = validatorFactory.getValidator();
 
