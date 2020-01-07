@@ -1,4 +1,6 @@
 server:
-  port: 8090
+  port: 8080
+  servlet:
+    context-path: /swagger
 swagger:
   enable: true
