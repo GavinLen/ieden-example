@@ -16,6 +16,7 @@
         <module>cache-example</module>
         <module>es-example</module>
         <module>bean-validation-example</module>
+        <module>jdk-example</module>
     </modules>
 
     <properties>
