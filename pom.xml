@@ -16,7 +16,9 @@
         <module>cache-example</module>
         <module>es-example</module>
         <module>bean-validation-example</module>
-        <module>jdk-example</module>
+        <module>excel-example</module>
+        <module>guava-example</module>
+        <module>mapstruct-example</module>
     </modules>
 
     <properties>
@@ -34,6 +36,12 @@
         <logback.version>1.2.3</logback.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

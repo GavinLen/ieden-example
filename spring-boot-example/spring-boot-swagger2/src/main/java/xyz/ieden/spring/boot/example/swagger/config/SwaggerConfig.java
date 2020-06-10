@@ -1,8 +1,10 @@
 package xyz.ieden.spring.boot.example.swagger.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -18,6 +20,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @version 1.0.1
  * @date 2019/11/18 14:20
  */
+//@Profile(value = {"test"})
+//@ConditionalOnProperty(prefix = "swagger",value = {"enable"},havingValue = "true", matchIfMissing = true)
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -27,7 +31,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket bookDocket() {
-        Docket docket = new Docket(DocumentationType.SWAGGER_2);
+        Docket docket = getDocket();
         return docket.groupName("book")
                 .apiInfo(bookApiInfo())
                 .select()
@@ -69,7 +73,7 @@ public class SwaggerConfig {
 
     private Docket getDocket() {
         final Docket docket = new Docket(DocumentationType.SWAGGER_2);
-        docket.enable(enableSwagger);
+        docket.enable(false);
         return docket;
     }
 

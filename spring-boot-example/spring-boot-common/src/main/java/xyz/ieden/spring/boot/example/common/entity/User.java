@@ -1,6 +1,8 @@
 package xyz.ieden.spring.boot.example.common.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author lianghongwei01
@@ -8,6 +10,8 @@ import lombok.Data;
  * @date 2019/11/15 17:26
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     private Byte byteVal;
