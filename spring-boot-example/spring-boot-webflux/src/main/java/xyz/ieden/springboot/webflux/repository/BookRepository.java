@@ -13,9 +13,9 @@ public interface BookRepository {
 
     Long save(Book book);
 
-    Long remove(Long id);
+    Book remove(Long id);
 
-    Long update(Long id);
+    Long update(Book id);
 
     Book findById(Long id);
 

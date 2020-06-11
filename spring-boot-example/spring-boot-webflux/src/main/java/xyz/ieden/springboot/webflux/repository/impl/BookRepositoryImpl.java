@@ -4,6 +4,8 @@ import org.springframework.stereotype.Repository;
 import xyz.ieden.spring.boot.example.common.entity.Book;
 import xyz.ieden.springboot.webflux.repository.BookRepository;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -27,25 +29,29 @@ public class BookRepositoryImpl implements BookRepository {
         bookMap.put(id, book);
         return id;
     }
-    https://me.csdn.net/why191314
+
     @Override
-    public Long remove(Long id) {
-        Book remove = bookMap.remove(id);
-        return null;
+    public Book remove(Long id) {
+        Book removeBook = bookMap.remove(id);
+        return removeBook;
     }
 
     @Override
-    public Long update(Long id) {
-        return null;
+    public Long update(Book book) {
+        Long id = book.getId();
+        bookMap.put(id, book);
+        return id;
     }
 
     @Override
     public Book findById(Long id) {
-        return null;
+        return bookMap.get(id);
     }
 
     @Override
     public List<Book> findAll() {
-        return null;
+        Collection<Book> bookCollection = bookMap.values();
+        return new ArrayList<Book>(bookCollection);
     }
+    https://me.csdn.net/why191314
 }
